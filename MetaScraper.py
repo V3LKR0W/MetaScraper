@@ -18,9 +18,10 @@ class MetaScraper():
                 'User-Agent':str(useragent)
             }
         raw = requests.get(url, headers=usr_agent).text
+        soup = BeautifulSoup(raw, 'lxml')
+        print(soup)
 
 
 
-
-#MetaScraper.get_preview('https://google.com', useragent=None)
+MetaScraper.get_preview('https://google.com', useragent=None)
 
