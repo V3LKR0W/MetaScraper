@@ -11,4 +11,4 @@ pip install bs4
 
 **Logic**
 
-[Logic](https://github.com/V3LKR0W/MetaScraper/blob/master/Logic.png)
+![Logic](https://github.com/V3LKR0W/MetaScraper/blob/master/Logic.png)
