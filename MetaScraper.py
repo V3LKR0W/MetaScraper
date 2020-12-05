@@ -18,10 +18,14 @@ class MetaScraper():
                 'User-Agent':str(useragent)
             }
         raw = requests.get(url, headers=usr_agent).text
-        soup = BeautifulSoup(raw, 'lxml')
-        print(soup)
+        soup = bs(raw, 'lxml')
+        for v in soup.find_all('meta',{'name':'description'}):
+            Response = {
+                'preview_description':str(v['content'])
+            }
+            print(Response)
 
 
 
-MetaScraper.get_preview('https://google.com', useragent=None)
+#MetaScraper.get_preview('https://reddit.com', useragent=None)
 
