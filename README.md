@@ -5,6 +5,8 @@ Retreives Title, Description and OpenGraph images and returns back the data so i
 
 **Module Dependacny**
 
+pip install flask
+
 pip install requests 
 
 pip install bs4
