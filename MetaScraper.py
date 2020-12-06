@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 import requests
 from bs4 import BeautifulSoup as bs
 
@@ -20,13 +20,41 @@ class MetaScraper():
             usr_agent = {
                 'User-Agent':str(useragent)
             }
-        raw = requests.get(url, headers=usr_agent).text
-        soup = bs(raw, 'lxml')
-        for v in soup.find_all('meta',{'name':'description'}):
+        try:
+            raw = requests.get(url, headers=usr_agent).text
+            soup = bs(raw, 'lxml')
             Response = {
-                'preview_description':str(v['content'])
+                'pageURL': '',
+                'pageTitle': '',
+                'pageDescription': '',
+                'pageOG:image': '',
             }
-            return Response
+            
+            Response['pageURL'] = str(url)
+            
+            for v in soup.find_all('title'):
+                if v.text == '':
+                    Response['pageTitle'] = 'N/A'
+                else:
+                    Response['pageTitle'] = v.text  
+                
+            for v in soup.find_all('meta',{'name':'description'}):
+                if v.content == '':
+                    Response['pageDescription'] = 'N/A'
+                else:
+                    Response['pageDescription'] = v['content']
+                    
+            for v in soup.find_all('meta',{'property':'og:image'}):
+                if v.content == '':
+                    Response['pageOG:image'] = 'N/A'
+                else:
+                    Response['pageOG:image'] = v['content']
+                
+                
+        except Exception:
+            return jsonify({'Error':'Could not establish a connection to target domain'})
+        
+        return Response
 
 
 @app.route('/', methods=['GET'])
@@ -34,9 +62,13 @@ def index():
     return 'Nothing at the moment.'
 
 
-@app.route('/preview/<url>', methods=['GET'])
-def preview(url):
-    return MetaScraper.get_preview(f'https://{url}', useragent=None)
+@app.route('/preview', methods=['GET'])
+def preview():
+    url = request.args.get('url')
+    if url == '':
+        return jsonify({'Error':'No target specified'})
+    else:
+        return MetaScraper.get_preview(url, useragent=None)
 
 
 
