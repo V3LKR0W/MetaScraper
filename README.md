@@ -7,19 +7,22 @@ Retreives Title, Description and OpenGraph images and returns back the data so i
 
 pip install flask
 
-pip install requests 
+pip install pymongo
+
+pip install asyncio
+
+pip install aiohttp
 
 pip install bs4
 
+pip install base64
+
+pip install tldextract
+
 pip install lxml
+
 
 
 **Logic**
 
 ![Logic](https://github.com/V3LKR0W/MetaScraper/blob/master/Logic.png)
-
-
-**Documentation**
-
-MetaScraper.get_preview('https://example.com',useragent='MyUserAgent')
-The useragent can also be None which then will use the default, figured it would be good to make it
