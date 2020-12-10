@@ -74,12 +74,6 @@ def createKey():
     key = ''.join(random.choice(s) for length in range(20))
     return key
 
-
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
-
-
 @app.route('/keyGen', methods=['POST'])
 def keyGen():
     if request.method == 'POST':
@@ -97,9 +91,14 @@ def preview():
     key = request.form.get('key')
     url = request.form.get('url')
    
+   #Key Validation
+   
     if checkKey(key) == None:
         return jsonify({"Error":"Incorrect Key"})
-    elif key == None and url == None:
+    
+    #Param validation
+    
+    if key == None and url == None:
         return jsonify({"Error":"Incomplete request missing 'Url' and 'Key' parameter"})
     elif url == '':
         return jsonify({"Error":"Incomplete request missing Url parameter"})
@@ -107,6 +106,12 @@ def preview():
         return jsonify({"Error":"Incomplete request missing Key parameter"})
     else:
        return MetaScraper.get_preview(url, useragent='MetaScraper/HTTP/RichEmbedPreview')
+
+
+
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
 
 
 

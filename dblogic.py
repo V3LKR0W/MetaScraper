@@ -1,3 +1,4 @@
+# Client Secrets ./Keys.py
 from pymongo import MongoClient
 from keys import dbConnection, dbInfo
 
@@ -22,7 +23,7 @@ def checkKey(key):
         if result['Key'] == None:
             return None
         else:
-            return 2
+            return 'Found'
 
 print(checkKey(''))
         
