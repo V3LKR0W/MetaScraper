@@ -1,4 +1,4 @@
-# Client Secrets ./Keys.py
+# Client Secrets ./Keys.
 from pymongo import MongoClient
 from keys import dbConnection, dbInfo
 
@@ -25,5 +25,4 @@ def checkKey(key):
         else:
             return 'Found'
 
-print(checkKey(''))
         

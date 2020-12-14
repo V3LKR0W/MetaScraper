@@ -1,6 +1,7 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, url_for
 import requests, random, string, base64, tldextract
 from dblogic import *
+from redditcrawler import *
 from bs4 import BeautifulSoup as bs
 
 
@@ -52,7 +53,7 @@ class MetaScraper():
                 Response['pageDescription'] = v['content']
               
             for v in soup.find_all('meta',{'name':'theme-color'}):
-                Response['themeColor'] = v['content']  
+                Response['themeColor'] = v['content']
                     
             for v in soup.find_all('meta',{'property':'og:image'}):
                 Response['pageOG:image'] = v['content']
@@ -107,11 +108,17 @@ def preview():
     else:
        return MetaScraper.get_preview(url, useragent='MetaScraper/HTTP/RichEmbedPreview')
 
-
-
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    post = getPost('pics', 100)
+    data = MetaScraper.get_preview(post, useragent=None)
+    title = data['pageOG:title']
+    description = data['pageDescription']
+    url = data['pageURL']
+    img = data['pageOG:image']
+    source = data['pageDomain']
+    
+    return render_template('index.html', title=title, description=description, url=url, img=img, source=source)
 
 
 

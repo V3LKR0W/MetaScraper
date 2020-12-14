@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+/*
+Desktop/ Default styling
+*/
+
+body{
+    background-color: #393E46;
+    margin:0;
+    padding: 0;
+}
+
+.Nav{
+  display: fixed;
+  background-color:#222831;
+  width: 100%;
+  height: auto;
+  margin-top: -10px;
+  padding-top:10px;
+  padding-bottom: 10px;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #6DA5cA;
+}
+
+.nostyle{
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0; 
+  padding: 0;
+}
+
+.items{
+  display: inline;
+}
+
+.Brand{
+  display: inline;
+  font-family: 'Open Sans', sans-serif;
+  color: #FFD369;
+  font-size: 30px;
+  padding-right: auto;
+  padding-left: 40px;
+}
+
+.nav-item{
+  padding-left: 40px;
+  display: inline;
+  float: right;
+}
+
+.nav-text{
+  font-family: 'Open Sans', sans-serif;
+  color: #FFD369;
+  font-size: 30px;
+  font-weight: 200;
+  margin-right:30px;
+}
+
+.nav-highlight{
+  background-color: white;
+  height: 1px;
+  width: 0px;
+  transition-timing-function: ease-out;
+  transition: all 1s;
+}
+
+.header-main{
+  text-align:center;
+  color: #FFD369;
+  font-size:60px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subheader{
+  text-align:center;
+  font-size:30px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.meta-image{
+  display:inline;
+  width:200px;
+  height:auto;
+  border-radius:15px;
+  padding-right:20px;
+}
+
+.header{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+.meta-text{
+ display:inline-block;
+ padding-right:20px;
+}
+
+.reddit-wrapper{
+  display: flex;
+  position: relative;
+  height: auto;
+  width: 600px;
+  margin-top: 100px;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  background-color: rgba(0,0,0,.5);
+  box-shadow: 2px 2px 2px #FFFFFF;
+}
+
+.text{
+  color: white;
+}
+
+.header{
+  font-size: 20px;
+}
+
+.content{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.source{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 25px;
+  padding-bottom: 10px;
+  float: right;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+
+.light-waves{
+  margin-top:-90px;
+}
+
+
+/*
+Animations
+*/
+.htrigger:hover .nav-highlight{
+  width:40%;
+}
+
+/* 
+Moblile resizing
+*/
+@media only screen and (max-width: 1026px) {
+  
+  .Brand{
+    padding-right: 0;
+    font-size:20px;
+  }
+  
+  .nav-item{
+    float: right;
+  }
+  
+  .nav-text{
+    display: none;
+  }
+  
+}

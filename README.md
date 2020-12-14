@@ -17,6 +17,8 @@ pip install bs4
 
 pip install base64
 
+pip install praw
+
 pip install tldextract
 
 pip install lxml
