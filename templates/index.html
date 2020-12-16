@@ -8,20 +8,30 @@
     <meta property='og:title' content='MetaScraper'>
     <link rel='stylesheet' type='text/css' href='{{ url_for("static", filename="styles/index.css") }}'>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
+  
 </head>
 <body>
     <nav class='Nav'>
         <a class='nostyle' href='/'><h1 class='Brand'>MetaScraper.io</h1><a>
         <ul class='items'>
-          <li class='nostyle nav-item'><div class='htrigger'><a class='nostyle nav-text' href='#Token'>Get a token</a><div class='nav-highlight'></div></li></div>
-          <li class='nostyle nav-item'><div class='htrigger'><a class='nostyle nav-text' href='#Token'>Documentation</a><div class='nav-highlight'></div></li></div>
+          <li class='nostyle nav-item'><div class='htrigger'><a class='nostyle nav-text' href='/Docs'>Source code</a><div class='nav-highlight'></div></li></div>
+          <li class='nostyle nav-item'><div class='htrigger'><a class='nostyle nav-text' href='/Token'>Get a token</a><div class='nav-highlight'></div></li></div>
+          <li class='nostyle nav-item'><div class='htrigger'><a class='nostyle nav-text' href='/Docs'>Documentation</a><div class='nav-highlight'></div></li></div>
         </ul>
           <li class='mobile-nav nav-item'>
               <svg width="39" height="30" viewBox="0 0 39 30" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M39 6.15H0V0.375H39V6.15ZM39 11.925H0V17.7H39V11.925ZM39 23.475H0V29.25H39V23.475Z" fill="#FFD369"/>
             </svg></li>
     </nav>
-
+  
+<div class='mobile-menu'>
+  <ul>
+    <li class='nostyle mobile-menu-li'><a class='nostyle mobile-menu-item' href='/Docs'>Documentation</a></li>
+    <li class='nostyle mobile-menu-li'><a class='nostyle mobile-menu-item' href='/Token'>Get a token</a></li>
+    <li class='nostyle mobile-menu-li'><a class='nostyle mobile-menu-item' href='/Github'>Source code</a></li>
+  </ul>
+</div>
  
 <div class='main'>
   <h1 class='header-main'>MetaScraper.io</h1>
@@ -48,9 +58,53 @@
 </div>
 
 <script>
+  // ScrollReveal
   ScrollReveal().reveal('.header-main', {delay: 100});  
   ScrollReveal().reveal('.subheader', {delay: 1000});  
-  ScrollReveal().reveal('.reddit-wrapper', {delay: 1500});  
+  ScrollReveal().reveal('.reddit-wrapper', {delay: 1500}); 
+</script>
+  
+<script>
+  // Mobile Dropdown
+  const navbtn = document.getElementsByClassName('mobile-nav')[0];
+  const navmenu = document.getElementsByClassName('mobile-menu')[0];
+  
+  let opened = false;
+  navbtn.addEventListener('click',function(){
+    if(opened == true){
+      console.log('close');
+      opened = false;
+        anime({
+        targets: navmenu,
+        right: '0px',
+        top: '0px',
+        backgroundColor: 'rgba(34, 40, 49, 0.8)',
+        opacity: 0,
+        borderRadius: ['5%', '0%'],
+        easing: 'linear',
+        height: ['40%', '0%'],
+        duration: 300,
+        complete: function() {
+          navmenu.style.display = 'none';
+      },
+      });
+    }else{
+      console.log('open');
+      opened = true;
+      navmenu.style.display = 'block';
+      anime({
+        targets: navmenu,
+        right: '0px',
+        top: '50px',
+        opacity: 1,
+        backgroundColor: 'rgba(34, 40, 49, 1)',
+        height: ['0%', '40%'],
+        borderRadius: ['0%', '5%'],
+        easing: 'linear',
+        duration: 300,
+      });
+    };
+  })
 </script>
   
   
