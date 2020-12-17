@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, render_template, url_for
 import requests, random, string, base64, tldextract
 from dblogic import *
-from redditcrawler import *
+from Crawler import *
 from bs4 import BeautifulSoup as bs
 
 
@@ -110,15 +110,28 @@ def preview():
 
 @app.route('/', methods=['GET'])
 def index():
-    post = getPost('pics', 100)
-    data = MetaScraper.get_preview(post, useragent=None)
-    title = data['pageOG:title']
-    description = data['pageDescription']
-    url = data['pageURL']
-    img = data['pageOG:image']
-    source = data['pageDomain']
+    # Example data crawling
+    post = getPost('pics', 20)
+    video = getVideo('edm', 20)
+    pdata = MetaScraper.get_preview(post, useragent=None)
+    vdata = MetaScraper.get_preview(video, useragent=None)
+    # Compacting Post Data
+    title = pdata['pageOG:title']
+    description = pdata['pageDescription']
+    url = pdata['pageURL']
+    img = pdata['pageOG:image']
+    source = pdata['pageDomain']
+    #Compacting Video Data
+    video_title = vdata['pageOG:title']
+    video_description = vdata['pageDescription']
+    video_url = vdata['pageURL']
+    video_video = vdata['pageOG:video']
+    video_source = vdata['pageDomain']
     
-    return render_template('index.html', title=title, description=description, url=url, img=img, source=source)
+    return render_template('index.html',
+                           title=title, description=description, url=url, img=img, source=source,
+                           video_title=video_title, video_description=video_description, video_url=video_url, video_source=video_source, video_video=video_video,
+                           )
 
 
 

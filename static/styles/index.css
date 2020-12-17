@@ -134,6 +134,13 @@ body{
   background-color: rgba(0,0,0,.5);
 }
 
+.meta-video{
+  border: 0;
+  width: 200px;
+  height: auto;
+  border-radius: 15px;
+}
+
 .text{
   color: white;
 }
