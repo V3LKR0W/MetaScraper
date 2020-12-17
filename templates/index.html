@@ -8,6 +8,8 @@
     <meta property='og:title' content='MetaScraper'>
     <link rel='stylesheet' type='text/css' href='{{ url_for("static", filename="styles/index.css") }}'>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
   
 </head>
@@ -29,7 +31,7 @@
   <ul>
     <li class='nostyle mobile-menu-li'><a class='nostyle mobile-menu-item' href='/Docs'>Documentation</a></li>
     <li class='nostyle mobile-menu-li'><a class='nostyle mobile-menu-item' href='/Token'>Get a token</a></li>
-    <li class='nostyle mobile-menu-li'><a class='nostyle mobile-menu-item' href='/Github'>Source code</a></li>
+    <li class='nostyle mobile-menu-li'><a class='nostyle mobile-menu-item' href='https://github.com/V3LKR0W/MetaScraper'>Source code</a></li>
   </ul>
 </div>
  
@@ -57,12 +59,6 @@
   
 </div>
 
-<script>
-  // ScrollReveal
-  ScrollReveal().reveal('.header-main', {delay: 100});  
-  ScrollReveal().reveal('.subheader', {delay: 1000});  
-  ScrollReveal().reveal('.reddit-wrapper', {delay: 1500}); 
-</script>
   
 <script>
   // Mobile Dropdown
@@ -116,6 +112,48 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.66037L107 4.01817C213 1.08238 427 -4.4956 640 6.66037C853 18.1099 1067 46.2934 1280 54.5136C1493 63.0274 1707 51.8714 1813 46.2934L1920 40.4219V142H1813C1707 142 1493 142 1280 142C1067 142 853 142 640 142C427 142 213 142 107 142H0V6.66037Z" fill="#6DA5CA"/>
 </svg>
 </div>
-  
+<div class='page-break'></div>
+
+
+
+<div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+  <h1 class='Secondary-Header'>Supports Youtube Embeds!</h1>
+      <div class='reddit-wrapper'>
+        <img class='meta-image' alt='meta-image' src='{{img}}'>
+        <div class='meta-text'>
+          <p class='text header'>
+            {{title}}
+          </p>
+          <p class='text content'>
+            {{description}}
+          </p>
+          <br>
+          <a href='{{url}}'><footer class='text source'>  
+          Source {{source}}
+          </footer>
+        </a>
+        </div>
+</div>
+
+
+
+<div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+  <h1 class='Secondary-Header'>Supports Spotify Embeds!</h1>
+</div>
+
+
+
+
+<script>
+  // Scroll Animate
+  AOS.init();
+</script>
+
+<script>
+  // Delay Reveal
+  ScrollReveal().reveal('.header-main', {delay: 100});  
+  ScrollReveal().reveal('.subheader', {delay: 1000});  
+  ScrollReveal().reveal('.reddit-wrapper', {delay: 1500}); 
+</script>
 </body>
 </html>

@@ -65,12 +65,12 @@ body{
 }
 
 .mobile-menu{
-      display: none;
-      position: absolute;
-      right: 0;
-      background-color: rgba(34, 40, 49, 0.5);
-      width: 60%;
-      margin-right: 20px;
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: rgba(34, 40, 49, 0.5);
+  width: 60%;
+  margin-right: 20px;
 }
 
 .mobile-menu-li{
@@ -114,9 +114,9 @@ body{
 }
 
 .meta-text{
- display:inline-block;
- padding-right:20px;
- height: auto;
+  display:inline-block;
+  padding-right:20px;
+  height: auto;
 }
 
 .reddit-wrapper{
@@ -163,11 +163,25 @@ body{
   font-weight: 400;
 }
 
-
 .light-waves{
   margin-top:-90px;
 }
 
+.page-break{
+  display: block;
+  background-color: #222831;
+  width: 100%;
+  height: 40px;
+  margin-top: -12px;
+  padding-bottom: 40px;
+}
+
+.Secondary-Header{
+  color: #FFD369;
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Poppins', sans-serif;
+}
 
 /*
 Animations
@@ -179,7 +193,7 @@ Animations
 /* 
 Moblile resizing
 */
-@media only screen and (max-width: 1026px) {
+@media only screen and (max-width: 1043px) {
   
   .Brand{
     padding-right: auto;
