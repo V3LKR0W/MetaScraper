@@ -112,9 +112,11 @@ def preview():
 def index():
     # Example data crawling
     post = getPost('pics', 20)
-    video = getVideo('edm', 20)
+    video = getVideo('trap music', 30)
+    audio = getAudio()
     pdata = MetaScraper.get_preview(post, useragent=None)
     vdata = MetaScraper.get_preview(video, useragent=None)
+    adata = MetaScraper.get_preview(audio, useragent=None)
     # Compacting Post Data
     title = pdata['pageOG:title']
     description = pdata['pageDescription']
@@ -127,13 +129,20 @@ def index():
     video_url = vdata['pageURL']
     video_video = vdata['pageOG:video']
     video_source = vdata['pageDomain']
+    #Compacting Audio Data
+    audio_title = adata['pageOG:title']
+    audio_description = adata['pageDescription']
+    audio_url = adata['pageURL']
+    audio_audio = f'https://w.soundcloud.com/player/?url={ audio_url } '
+    audio_source = adata['pageDomain']
     
     return render_template('index.html',
                            title=title, description=description, url=url, img=img, source=source,
                            video_title=video_title, video_description=video_description, video_url=video_url, video_source=video_source, video_video=video_video,
+                           audio_title=audio_title, audio_description=audio_description, audio_source=audio_source, audio_audio=audio_audio, audio_url=audio_url,
                            )
 
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
