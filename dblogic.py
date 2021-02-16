@@ -2,6 +2,7 @@
 from pymongo import MongoClient
 from keys import dbConnection, dbInfo
 
+
 client = MongoClient(f'mongodb+srv://{dbConnection["username"]}:{dbConnection["password"]}@{dbConnection["cluster"]}/{dbConnection["dbname"]}?retryWrites=true&w=majority')
 
 
