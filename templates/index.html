@@ -17,7 +17,7 @@
     <nav class='Nav'>
         <a class='nostyle' href='/'><h1 class='Brand'>MetaScraper.io</h1><a>
         <ul class='items'>
-          <li class='nostyle nav-item'><div class='htrigger'><a class='nostyle nav-text' href='/Docs'>Source code</a><div class='nav-highlight'></div></li></div>
+          <li class='nostyle nav-item'><div class='htrigger'><a class='nostyle nav-text' href='/SourceCode'>Source code</a><div class='nav-highlight'></div></li></div>
           <li class='nostyle nav-item'><div class='htrigger'><a class='nostyle nav-text' href='/Token'>Get a token</a><div class='nav-highlight'></div></li></div>
           <li class='nostyle nav-item'><div class='htrigger'><a class='nostyle nav-text' href='/Docs'>Documentation</a><div class='nav-highlight'></div></li></div>
         </ul>
@@ -112,9 +112,28 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.66037L107 4.01817C213 1.08238 427 -4.4956 640 6.66037C853 18.1099 1067 46.2934 1280 54.5136C1493 63.0274 1707 51.8714 1813 46.2934L1920 40.4219V142H1813C1707 142 1493 142 1280 142C1067 142 853 142 640 142C427 142 213 142 107 142H0V6.66037Z" fill="#6DA5CA"/>
 </svg>
 </div>
-<div class='page-break'></div>
 
+<div data-aos="zoom-out-down">
+  <h1 class='Secondary-Header'>Documentation</h1>
 
+  <div>
+    <p class='p-text'>
+      Well this will probably be short.. The request to the API only requires two arguments, your Key and the destination url.
+    </p>
+    <h1 class='doc-header'>Here's an example request:</h1>
+      <img class='image' src='{{ url_for("static", filename="img/postrequest.png") }}' alt='request image'>
+
+    <h1 class='doc-header'>Here's the response from the API</h1>
+      <img class='image' src='{{ url_for("static", filename="img/response.png") }}' alt='response image'>
+  </div>
+<div class='waves'>
+  <svg class='dark-waves' viewBox="0 0 1920 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5.30016L107 3.19756C213 0.861334 427 -3.57749 640 5.30016C853 14.4114 1067 36.8392 1280 43.3806C1493 50.1556 1707 41.278 1813 36.8392L1920 32.1667V113H1813C1707 113 1493 113 1280 113C1067 113 853 113 640 113C427 113 213 113 107 113H0V5.30016Z" fill="#5A86A4"/>
+  </svg>
+  <svg class='light-waves' viewBox="0 0 1920 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.66037L107 4.01817C213 1.08238 427 -4.4956 640 6.66037C853 18.1099 1067 46.2934 1280 54.5136C1493 63.0274 1707 51.8714 1813 46.2934L1920 40.4219V142H1813C1707 142 1493 142 1280 142C1067 142 853 142 640 142C427 142 213 142 107 142H0V6.66037Z" fill="#6DA5CA"/>
+  </svg>
+  </div>
 
 <div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
   <h1 class='Secondary-Header'>Concepts</h1>
@@ -153,59 +172,8 @@
     </a>
     </div>
 </div>
-
-<div class='waves'>
-  <svg class='dark-waves' viewBox="0 0 1920 113" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 5.30016L107 3.19756C213 0.861334 427 -3.57749 640 5.30016C853 14.4114 1067 36.8392 1280 43.3806C1493 50.1556 1707 41.278 1813 36.8392L1920 32.1667V113H1813C1707 113 1493 113 1280 113C1067 113 853 113 640 113C427 113 213 113 107 113H0V5.30016Z" fill="#5A86A4"/>
-  </svg>
-  <svg class='light-waves' viewBox="0 0 1920 162" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.66037L107 4.01817C213 1.08238 427 -4.4956 640 6.66037C853 18.1099 1067 46.2934 1280 54.5136C1493 63.0274 1707 51.8714 1813 46.2934L1920 40.4219V142H1813C1707 142 1493 142 1280 142C1067 142 853 142 640 142C427 142 213 142 107 142H0V6.66037Z" fill="#6DA5CA"/>
-  </svg>
-  </div>
-<div class='page-break'></div>
   
 
-<div data-aos="zoom-out-down">
-  <h1 class='Secondary-Header'>Documentation</h1>
-
-  <div>
-    <p class='p-text'>
-      Well this will probably be short.. The request to the API only requires two arguments, your Key and the destination url.
-    </p>
-    <h1 class='doc-header'>Here's an example request:</h1>
-
-    <div class='code-block align-center'>
-      <code class='code-text'>{"key":"zElvK03cl4Ko9=","url":"https://www.youtube.com/watch?v=KnL2RJZTdA4"}</code>
-    </div>
-
-    <h1 class='doc-header'>Here's the response from the API</h1>
-    <div class='code-block align-left'>
-      <code class='code-text'>
-        {
-          <br>
-          "pageDescription": "Download 'Wizard' by Martin Garrix & Jay Hardway' HERE  http://smarturl.it/itunes_wizardOr you can grab your copy on Beatport : http://btprt.dj/1bDcC8jSubscr...",
-          <br>
-          "pageDomain": "youtube",
-          <br>
-          "pageOG:image": "https://i.ytimg.com/vi/KnL2RJZTdA4/hqdefault.jpg",
-          <br>
-          "pageOG:title": "Martin Garrix & Jay Hardway - Wizard (Official Music Video)",
-          <br>
-          "pageOG:video": "https://www.youtube.com/embed/KnL2RJZTdA4",
-          <br>
-          "pageTitle": "Martin Garrix & Jay Hardway - Wizard (Official Music Video) - YouTube",
-          <br>
-          "pageURL": "https://www.youtube.com/watch?v=KnL2RJZTdA4",
-          <br>
-          "themeColor": "rgba(255, 255, 255, 0.98)"
-          <br>
-      }
-      </code>
-    </div>
-
-  </div>
-
-</div>
 
 
 

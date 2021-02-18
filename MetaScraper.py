@@ -112,7 +112,7 @@ def preview():
 def index():
     # Example data crawling
     post = getPost('pics', 20)
-    video = getVideo('trap music', 30)
+    video = getVideo('pop music', 30)
     audio = getAudio()
     pdata = MetaScraper.get_preview(post, useragent=None)
     vdata = MetaScraper.get_preview(video, useragent=None)
