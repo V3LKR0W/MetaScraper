@@ -1,12 +1,23 @@
-from flask import Flask, jsonify, request, render_template, url_for
+from flask import Flask, jsonify, request, render_template, url_for, redirect
+from flask_wtf.csrf import CSRFProtect
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField
+from wtforms.validators import *
+from keys import *
 import requests, random, string, base64, tldextract
 from dblogic import *
 from Crawler import *
 from bs4 import BeautifulSoup as bs
 
+# Application initalization
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = flaskKeys['secret_key']
 
+csrf = CSRFProtect(app)
+
+
+# Application error handlers
 @app.errorhandler(404)
 def fourofour(e):
     #TODO: Make 404 page
@@ -22,6 +33,8 @@ def methodNotAllowed(e):
     #TODO: Make method not allowed page.
     return 'Method not allowed.'
 
+
+# MetaScraper API
 
 class MetaScraper():
     def __init__(self, url, useragent):
@@ -68,12 +81,41 @@ class MetaScraper():
             return jsonify({'Error':'Could not establish a connection to target domain'})
         
         return Response
-
+    
+# Form inputs    
+    
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    
+class CreateAccount(FlaskForm):
+    email = StringField('Email', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired(), EqualTo('retype_pw', message='Password must match')]) 
+    retype_pw = PasswordField('Repeat password')
+       
+# Routes and Functions
 
 def createKey():
     s = string.ascii_letters
     key = ''.join(random.choice(s) for length in range(20))
     return key
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    form = LoginForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        return 'success'
+    else:
+        return render_template('login.html', form=form)
+
+@app.route('/create-account', methods=['GET', 'POST'])
+def createAccount():
+    form = CreateAccount()
+    if request.method == 'POST' and form.validate_on_submit():
+        return 'success'
+    else:
+        return render_template('createaccount.html', form=form)
+
 
 @app.route('/keyGen', methods=['POST'])
 def keyGen():
@@ -108,10 +150,14 @@ def preview():
     else:
        return MetaScraper.get_preview(url, useragent='MetaScraper/HTTP/RichEmbedPreview')
 
+@app.route('/SourceCode', methods=['GET'])
+def sourceCode():
+    return redirect('https://github.com/V3LKR0W/MetaScraper')
+
 @app.route('/', methods=['GET'])
 def index():
     # Example data crawling
-    post = getPost('pics', 20)
+    post = getPost('MadeMeSmile', 5)
     video = getVideo('pop music', 30)
     audio = getAudio()
     pdata = MetaScraper.get_preview(post, useragent=None)

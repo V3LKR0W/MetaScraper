@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(165,142,251,1) 0%, rgba(233,191,248,1) 100%);
+    margin:0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header{
+    font-size: 50px;
+    color:rgb(0, 0, 0);
+    margin-top: 5%;
+    margin-left: 35%;
+    font-family: 'Poppins', 'Times New Roman';
+}
+
+.loginwrapper{
+    display: block;
+    background-color: #f0f0f0;
+    width: 30%;
+    height: 30%;    
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.inputbox{
+    border-radius: 5px;
+    border: .5px solid;
+    font-size: 20px;
+    width: 400px;
+    height: 50px;
+    margin-left: 50px;
+    box-shadow: 8px 8px 10px grey;
+    margin-bottom: 20px;
+    -webkit-appearance: none;
+}
+
+.forgotpassword{
+    font-family: 'Poppins', 'Times New Roman';
+    color: #002fff;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+.submit-btn{
+    display: block;
+    font-family: 'Poppins', 'Times New Roman';
+    font-size: 20px;
+    background-color: #44EA55;
+    border-radius: 5px;
+    width: 50%;
+    height: 50px;
+    border: none;
+    margin: 0 auto;
+}
+
+.signup-btn{
+    display: block;
+    font-family: 'Poppins', 'Times New Roman';
+    font-size: 20px;
+    background-color: #449AEA;
+    border-radius: 5px;
+    width: 50%;
+    height: 50px;
+    border: none;
+    margin: 0 auto;
+}
+
+
+.p{
+    font-family: 'Poppins', 'Times New Roman';
+    color: #000000;
+    text-align: center;
+}
+.text{
+    font-size: 30px;
+    margin-left: 50px;
+    font-family: 'Poppins', 'Times New Roman';
+}

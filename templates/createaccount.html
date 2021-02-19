@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href='{{ url_for("static",filename="styles/login.css") }}'>
+</head>
+<body>
+    <h1 class='header'>Create Account</h1>
+    <div class='loginwrapper'>
+        <form method='POST' action='/login'>
+            {{ form.email.label(class_='text') }}
+            {{ form.email(class_='inputbox') }}
+            {{ form.password.label(class_='text') }}
+            {{ form.password(class_='inputbox') }}
+            {{ form.retype_pw.label(class_='text') }}
+            {{ form.retype_pw(class_='inputbox') }}
+            {{ form.csrf_token }}
+            <br>
+            <br>
+            <br>
+            <input class='submit-btn' value='Create account' type='submit'>
+        </form>
+            <p class='p'>Already have an account?</p>
+            <button class="signup-btn" onclick='window.location.href="/login"'>Sign in</button>
+            <br>
+            <br>
+
+    </div>
+</body>
+</html>
